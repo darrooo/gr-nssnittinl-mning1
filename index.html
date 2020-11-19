@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<!-- Mke svårt de här -->
+
+<!--
+You should be good to go now: Type node app.js in the command line tool to
+start the server.
+You should see "Server is listening on port 3000" printed on the console.
+http://localhost:3000/
+
+
+<h1>
+Defines a heading. There are six levels of headings from <h1> to <h6>.
+ <p>
+ Is used to define a paragraph with flowing text.
+ <br/>
+ This tag adds a line break.
+ <a>
+ This is an anchor tag that defines a link the user can click. E.g., <a href="http://www.google.com/>Click this to get to the Google website</a>.
+<img>
+bild, <img src="path.to.image.jpg" alt="sunset in uppsala" title=Uppsala alt är för blinda
+<div>
+This is a divider and is a generic block element (see the Block and In-line section). This is used to define parts of your website that is not a common semantic element of your website.
+<span>
+This is a spanner and is a generic in-line element (see the Block and In-line section). This is used to define parts of your website that is not a common semantic element of your website. -->
+
+<!-- semantic elements -->
+<!-- -->
+<!--
+
+<header>
+Defines a document header, usually containing logotype and/or navigational links.
+<main>
+Should contain the main content of the HTML document. Only one main element is allowed per HTML document.
+<footer>
+Defines a document footer, usually containing contact details or copyright info.
+<nav>
+Outlines a major block of navigation links
+<article>
+Should contain content that stands on its own, such as a blog post or a news article.
+<section>
+Defines a section of the web document. Can be used to define sections of an article or sections of the document itself.
+<figure>
+Defines a figure and usually contains an img element together with a figcaption element.
+ -->
+<!--
+
+<h1>This is a block element</h1>
+<div>This is a block element</div>
+<p>This is a block element <span>with an in-line element placed inside</span></p>
+<span>This is an in-line element</span>
+<a href="http://www.google.com/">This is an in-line element</a>
+<img src="http://www.irisa.fr/celtique/genet/span/span.gif" alt="Span" title="Another in-line element" width="100">
+-->
+<!-- Listor
+Ger siffror
+<ol>
+    <li>Samuel Adams Boston Lager</li>
+    <li>Marble Brewery Earl Grey IPA</li>
+    <li>Innis &amp; Gunn Oak Aged</li>
+</ol>
+Ger pluppar
+<ul>
+    <li>IPA</li>
+    <li>Red Ale</li>
+    <li>Imperial Stout</li>
+</ul>
+
+Header och subscript
+<dl>
+    <dt>Ale</dt>
+    <dd>A top fermented beverage</dd>
+
+    <dt>Lager</dt>
+    <dd>A bottom fermented beverage</dd>
+</dl>
+
+ta nedladdad bild: hitta copy full path, ta bort allt fram till nuvarande folder.
+<td align=center><img src="\img\burgerr.jpg" alt="invisible burger" title= Invisible width="150" ></td>
+ semantic elements -->
+
+<html lang="en">
+
+<head>
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
+  <script type="text/javascript" src="js/menu.js"> </script>
+
+  </script>
+  <script src="js/js_script.js" defer></script>
+  <!--Link both the JavaScipt and the Vue file to this document-->
+  <script src="js/vue_script.js" defer></script>
+  <title>Hamburger Bonanza</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="\css\style.css">
+  <!--<link rel="stylesheet" href="css/deli-very.css">-->
+  <!--added from map.html-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/deli-very.css">
+  <script src="/vue/vue.js" defer></script>
+  <!--<script src="js/deli-very.js" defer></script>-->
+
+  <!--added from map.html-->
+
+
+</head>
+
+<body>
+
+  <main>
+    <div id="mapnbutton">
+      <header>
+        <img src="https://i.pinimg.com/originals/64/2e/1d/642e1d44775dc46e9506c95bc66f6d2e.jpg">
+        <section class="headertext">
+          <h1>It's time for burger BONANZA</h1>
+        </section>
+      </header>
+
+      <section class="burger1">
+
+
+        <h3>Our juicy burgers!</h3>
+        <p> Select your juicy burger. </p>
+
+
+        <div class="grid-container" id="tables">
+          <div v-for="(burger, index) in burgers" class="grid-item">
+
+            <br>
+            <h1>{{burger.name}}</h1>
+            <br>
+            <div id="imgid">
+              <img v-bind:src="burger.img">
+            </div>
+            <br>
+            {{burger.kCal}} kCal
+            <br>
+            {{burger.disc1}}
+            <br>
+            {{burger.disc2}}
+            <br>
+            <div v-if="burger.lactose" id="allergies">
+              lactose
+            </div>
+            <div v-if="burger.gluten" id="allergies">
+              gluten
+            </div>
+            <input type="checkbox" id="burg" name="burgers" :value="index">
+            <label for="bur"> add burger</label><br>
+
+
+          </div>
+        </div>
+
+
+
+
+      </section>
+      <!--burger1-->
+
+      <section class="oinfo1">
+
+
+        <h3>Costumer information</h3>
+        <p> I want to know everything about you! </p>
+
+        <h5>Delivery information</h5>
+
+        <form>
+          <p>
+            <label for="fullname">Full name</label><br>
+            <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+          </p>
+          <p>
+            <label for="mail">E-mail</label><br>
+            <input type="email" id="mail" name="ml" placeholder="E-mail address">
+          </p>
+          <p>
+            <!-- remove
+                <label for="street">Street</label><br>
+                <input type="text" id="street" name="str" placeholder="Street name">
+            </p>
+            <p>
+                <label for="house">House</label><br>
+                <input type="number" id="house" name="hs" placeholder="House number">
+            </p>
+            <p> -->
+            <label for="payment">Payment Options</label><br>
+            <select id="payment" name="po">
+              <option selected="selected">Credit card</option>
+              <option>Debit card</option>
+              <option>invoice</option>
+              <option>PayPal</option>
+            </select>
+            <br>
+
+
+
+
+
+            <br>
+            <label for="gender">Gender</label><br>
+            <input type="radio" id="Male" name="gd" value="1">
+            <label for="Male">Male</label><br>
+            <input type="radio" id="Female" name="gd" value="2">
+            <label for="Female">Female</label><br>
+            <input type="radio" id="Non-Binary" name="gd" value="3">
+            <label for="Non-Binary">Non-Binary</label><br>
+            <input checked="checked" type="radio" id="Undisclosed" name="gd" value="4">
+            <label for="Undisclosed">Undisclosed</label><br>
+          </p>
+
+
+
+
+          <div class="view-box">
+            <div id="dots" v-on:click="displayOrder">
+              <div v-for="(order, key) in newOrder" v-bind:style="{ left: newOrder.details.x + 'px', top: newOrder.details.y + 'px'}">
+                T
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </form>
+      </section>
+
+      <button type="submit" id="myButtonID" v-on:click="buttonClicked()"><img src="https://prnewswire2-a.akamaihd.net/p/1893751/sp/189375100/thumbnail/entry_id/1_edbgi8ob/def_height/950/def_width/950/version/100011/type/1" width="15"> Send my
+        order!</button>
+
+      <div v-if="click">
+        <h1>Your info</h1>
+        <li>Full name: {{customerArray[0]}}</li>
+        <li>E-mail: {{customerArray[1]}}</li>
+        <li>payment method: {{customerArray[2]}}</li>
+        <li> gender: {{customerArray[3]}}</li>
+        <h1>Order information</h1>
+        <li>{{"burger(s): " + burgerArray}}</li>
+      </div>
+  </main>
+
+</body>
+<footer>
+  @ 2020 Daniella Rosendahl TM
+
+</footer>
+
+</html>
